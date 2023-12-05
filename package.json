@@ -11,8 +11,12 @@
   },
   "dependencies": {
     "aframe": "^1.4.2",
+    "aframe-animation-component": "^5.1.2",
+    "aframe-animation-timeline-component": "^2.0.0",
+    "aframe-text-geometry-component": "^0.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sass": "^1.69.5",
     "three": "^0.158.0"
   },
   "devDependencies": {
