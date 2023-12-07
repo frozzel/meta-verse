@@ -1,4 +1,3 @@
-import 'aframe';
 import 'aframe-text-geometry-component'
 import PropTypes from 'prop-types';
 
