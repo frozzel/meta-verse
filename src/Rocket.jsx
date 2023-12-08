@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import  { useEffect } from 'react';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import rocketModel from './models/rocket.glb';

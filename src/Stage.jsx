@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import rocketModel from './models/scene.glb';
 import Prototypes from 'prop-types';

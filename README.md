@@ -10,3 +10,12 @@ Currently, two official plugins are available:
 
 https://stackoverflow.com/questions/74405828/cant-seem-to-import-glb-gltf-in-svelte-with-vite
 https://stemkoski.github.io/A-Frame-Examples/
+
+"Kevin The Cube" (https://skfb.ly/o6Ypo) by lildrstrange11 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+
+"Tesseract Cube" (https://skfb.ly/6VNqV) by Akshat is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"CLOUD high poly" (https://skfb.ly/o7ozJ) by gaelinix is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"GitHub Octocat" (https://skfb.ly/oHnR9) by pissang is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
