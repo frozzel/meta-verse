@@ -2,7 +2,10 @@ import 'aframe-text-geometry-component'
 import PropTypes from 'prop-types';
 
 
-function Into({x, y, z}) {
+
+function Into() {
+
+
   return (<>
   
     <a-entity 
@@ -28,6 +31,7 @@ function Into({x, y, z}) {
         animation__yoyo="property: position; dir: alternate; dur: 3000; easing: easeInSine; loop: false; to: -7 2 -12"
                                  >
     </a-entity>
+ 
 
 
     </>);
