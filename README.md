@@ -19,3 +19,9 @@ https://stemkoski.github.io/A-Frame-Examples/
 "CLOUD high poly" (https://skfb.ly/o7ozJ) by gaelinix is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 "GitHub Octocat" (https://skfb.ly/oHnR9) by pissang is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"new_cortana_halo4_og" (https://skfb.ly/ossET) by bingchillin is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+https://c-frame.github.io/aframe-extras/examples/
+
+"CHAT GPT LOGO METAL FREE V.2" (https://skfb.ly/oJP7y) by vmmaniac is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

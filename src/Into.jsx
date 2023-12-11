@@ -11,7 +11,7 @@ function Into() {
     <a-entity 
         mixin="boldFont" 
         text-geometry="value: Dennis Hickox; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 10; size: 1.5; height: 0.5; weight: bold; style: normal;" 
-        position='-7 4 -40'
+        position='-7 4 -12'
         material="color: white; opacity: 0.0; metalness: .8" 
         opacity='0.2'
         // animation="property: components.material.material.color; type: color; dir: alternate; dur: 1000; easing: easeInSine; loop: true; to: #5F5"
@@ -22,7 +22,7 @@ function Into() {
     <a-entity 
         mixin="boldFont" 
         text-geometry="value: Full Stack Developer; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 10; size: 1.5; height: 0.5; weight: bold; style: normal;" 
-        position='-7 2 -40'
+        position='-7 2 -12'
         material="color: white; opacity: 0.0; metalness: .8; " 
 
         opacity='0.2'
