@@ -10,7 +10,7 @@ function SalesforceLogo({x, y, z}) {
         material="color: #009EDB; opacity: 0.0; metalness: .8" 
         opacity='0.2'
         animation__opacity="property: components.material.material.opacity; dur: 3000; easing: linear; from: 0; to: 1; loop: false"
-                                 >
+                            >
     </a-entity>
   
     </>);
