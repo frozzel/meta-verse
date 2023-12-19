@@ -25,3 +25,6 @@ https://stemkoski.github.io/A-Frame-Examples/
 https://c-frame.github.io/aframe-extras/examples/
 
 "CHAT GPT LOGO METAL FREE V.2" (https://skfb.ly/oJP7y) by vmmaniac is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+
+material="color: #009EDB; opacity: 1; metalness: .8 " 

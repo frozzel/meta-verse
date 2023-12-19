@@ -2,7 +2,7 @@
 import  { useEffect } from 'react';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import rocketModel from './models/rocket.glb';
-import Prototypes from 'prop-types';
+import {Entity} from 'aframe-react';
 
 
 function Rocket({x, y, z}) {
@@ -29,13 +29,7 @@ useEffect(() => {
     }
   }, []);
 
-  return <a-entity id="rocket" position={`${x} ${y} ${z}`} scale="15 15 15" rotation={`0 0 ${z - 200}`}></a-entity>;
-}
-
-Rocket.Prototypes = {
-    x: Prototypes.number,
-    y: Prototypes.number,
-    z: Prototypes.number
+  return <Entity id="rocket" position={`${x} ${y} ${z}`} scale="15 15 15" rotation={`0 0 ${z - 200}`}></Entity>;
 }
 
 
