@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 // import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import rocketModel from './models/mountain.glb';
-import Prototypes from 'prop-types';
+import {Entity} from 'aframe-react';
+
 
 function Mountain({x, y, z}) {
     // const loader = new GLTFLoader();
@@ -11,14 +12,9 @@ function Mountain({x, y, z}) {
     // })
 
     return(
-        <a-entity id="mountain" gltf-model={rocketModel} position={`${x} ${y} ${z}`} scale="15 15 15" rotation="0 0 0"></a-entity>
+        <Entity id="mountain" gltf-model={rocketModel} position={`${x} ${y} ${z}`} scale="15 15 15" rotation="0 0 0"></Entity>
     );
 }
 
-Mountain.Prototypes = {
-    x: Prototypes.number,
-    y: Prototypes.number,
-    z: Prototypes.number
-}
 
 export default Mountain;
