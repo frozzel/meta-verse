@@ -26,5 +26,10 @@ https://c-frame.github.io/aframe-extras/examples/
 
 "CHAT GPT LOGO METAL FREE V.2" (https://skfb.ly/oJP7y) by vmmaniac is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
+"Temple of Ikov Reimagined" (https://skfb.ly/6QVND) by Laetitia Irata is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Greek Temple" (https://skfb.ly/6wLCR) by Mirai Studio is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Greek Pillar Circle" (https://skfb.ly/6SVWy) by deertears is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 material="color: #009EDB; opacity: 1; metalness: .8 " 

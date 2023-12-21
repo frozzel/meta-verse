@@ -1,8 +1,10 @@
 import './App.scss';
+import {useState} from 'react';
 import {Entity, Scene} from 'aframe-react';
 import 'aframe';
 import ('aframe-extras');
 import 'aframe-text-geometry-component';
+// import 'aframe-physics-system';
 // import 'aframe-environment-component';
 import sky from './stars.jpg';
 import mountain from './models/mountain.glb';
@@ -14,7 +16,7 @@ import glow from './models/glow.glb';
 import chatGpt from "./models/chat_gpt_logo_metal_free_v.2.glb";
 import github from './models/github_octocat.glb';
 import rocket from './models/rocket.glb';
-// import pillar from './models/doric_pillar.glb';
+import pillar from './models/greek_pillar_circle.glb';
 import stage from './models/scene.glb';
 
 import Speech from 'react-speech';
@@ -24,17 +26,24 @@ import video from './models/Drake.mp4';
 
 
 
-
-
-
-
 function App() {
+  const [text, setText] = useState('Hello World');
+
+  function handleClick() {
+    console.log('clicked');
+    setText('Hello World Again');
+
+    
+  }
+console.log(text);
+
 
 
   return (
     <>
+    <Speech id="speech" text={text} click-listener cursor-listener speech-on-click />
     
-      <Scene physics="debug: true" look-controls="reverseMouseDrag: true" look-at="scene" >
+      <Scene vr-mode-ui="enabled: true" >
         <a-assets>
           <img id="sky" src={sky}></img>  
           <a-asset-item id="mountain" src={mountain}></a-asset-item>
@@ -46,14 +55,31 @@ function App() {
           <a-asset-item id="chatGpt" src={chatGpt}></a-asset-item>
           <a-asset-item id="github" src={github}></a-asset-item>
           <a-asset-item id="rocket" src={rocket}></a-asset-item>
-          <a-asset-item id="video" src={video}></a-asset-item>
-          {/* <a-asset-item id="pillar" src={pillar}></a-asset-item> */}
+          <video id="video" preload="auto" src={video}></video>
+          <a-asset-item id="pillar" src={pillar}></a-asset-item>
           <a-asset-item id="stage" src={stage}></a-asset-item>
+          <Speech id="chatGpt" text="Hello World" click-listener cursor-listener />
           <a-mixin id="boldFont1" animation="property: position; dur: 6000; easing: linear; loop: false; to: -7 2 -12"></a-mixin>
           <a-mixin id="boldFont2" animation__yoyo="property: position; dur: 6000; easing: linear; loop: false; to: -7 4 -12"></a-mixin>
-          <a-mixin id="rocket"  animation="property: position; to: -1000 1010 -100; loop: true; dur: 20000; easing: linear; delay: 10000 " ></a-mixin>
 
         </a-assets>
+
+        <Entity
+          primitive="a-camera"
+          position="0 1.5 0"
+          look-controls="reverseMouseDrag: true"
+          wasd-controls="acceleration: 100; fly: true"
+          cursor="rayOrigin: mouse"
+          raycaster="objects: .clickable"
+        >
+          <Entity
+          primitive="a-cursor"
+          cursor="fuse: true; fuseTimeout: 500"
+          position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: white; shader: flat"
+          ></Entity>
+        </Entity>
 
        
 
@@ -94,6 +120,7 @@ function App() {
           position="0 0 0" 
           scale="15 15 15" 
           rotation="0 0 0"
+          static-body
         ></Entity>
         
         <Entity
@@ -102,15 +129,8 @@ function App() {
           rotation="0 0 0"
           scale="0.02 0.02 0.02"
           animation__rotate="property: rotation; to: 360 360 0; loop: true; dur: 10000"
+          static-body
         ></Entity>
-
-        <Entity 
-          primitive="a-icon"
-          src="#rocket2"
-          position="0 0 0"
-          rotation="0 0 0"
-          scale="1 1 1"
-          > </Entity>
 
         <Entity 
           id="einstein" 
@@ -118,6 +138,7 @@ function App() {
           position="45 0.5 -30" 
           scale="1 1 1" 
           rotation="0 100 0"
+          static-body
         ></Entity>
 
         <Entity 
@@ -154,12 +175,21 @@ function App() {
         ></Entity>
 
         <Entity
-            id="chatGpt"
-            gltf-model="#chatGpt"
-            position="-45 1 -27"
-            scale="1 1 1"
-            rotation="0 0 0"
-        ></Entity>
+          id="chatGpt"
+          gltf-model="#chatGpt"
+          position="-45 1 -27"
+          scale="1 1 1"
+          rotation="0 0 0"
+          events={{ click: () => { handleClick()} }}
+          click-listener
+          cursor-listener
+          speech-on-click
+          data-text="Hello World"
+        > 
+        
+          
+        </Entity>
+
 
         <Entity 
           id="github" 
@@ -175,17 +205,18 @@ function App() {
           position="100 10 -100"
           scale="15 15 15"
           rotation="0 0 45"
-          // animation="property: position; to: -1000 1010 -100; loop: true; dur: 20000; easing: linear; delay: 10000 "
+          animation="property: position; to: -1000 1010 -100; loop: true; dur: 20000; easing: linear; delay: 10000 "
         ></Entity>
 
 
-        {/* <Entity
+        <Entity
           id="pillar"
           gltf-model="#pillar"
-          position="100 -2 0"
-          scale=".5 .5 .5"
-          rotation="0 -90 0"
-        ></Entity>          */}
+          position="100 -1 0"
+          scale="4 4 4"
+          rotation="0 0 0"
+          static-body
+        ></Entity>         
 
         <Entity 
           id="stage" 
@@ -193,11 +224,11 @@ function App() {
           position="-100 1.5 0" 
           scale="4 4 4" 
           rotation="0 90 0"
-        
+          static-body
         ></Entity>
 
-{/* 
-        <Entity 
+
+        {/* <Entity 
           primitive="a-video" 
           src="#video" 
           width="50" 
