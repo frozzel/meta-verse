@@ -1,5 +1,5 @@
 import './App.scss';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {Entity, Scene} from 'aframe-react';
 import 'aframe';
 import ('aframe-extras');
@@ -14,36 +14,93 @@ import cloud from './models/cloud_high_poly.glb';
 import cortana from './models/new_cortana_halo4_og.glb';
 import glow from './models/glow.glb';
 import chatGpt from "./models/chat_gpt_logo_metal_free_v.2.glb";
+import voice from './models/mic.glb';
 import github from './models/github_octocat.glb';
 import rocket from './models/rocket.glb';
-import pillar from './models/greek_pillar_circle.glb';
+import pillar from './models/particle_wave.glb';
 import stage from './models/scene.glb';
-
-import Speech from 'react-speech';
-
-
 import video from './models/Drake.mp4';
 
 
 
 function App() {
-  const [text, setText] = useState('Hello World');
+  const [text, setText] = useState('Welcome to my ChatGpt Demo! Click on the Microphone logo to start a conversation.');
+  const [isPaused, setIsPaused] = useState(false);
+  const [utterance, setUtterance] = useState(null);
 
-  function handleClick() {
-    console.log('clicked');
-    setText('Hello World Again');
 
-    
+useEffect(() => {
+  const synth = window.speechSynthesis;
+  const u = new SpeechSynthesisUtterance(text);
+
+  setUtterance(u);
+
+  return () => {
+    synth.cancel();
+  };
+}, [text]);
+
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+
+    recognition.onstart = () => {
+      console.log('Voice recognition started. Speak into the microphone.');
+    };
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      console.log('Voice recognition result:', transcript);
+      setText(transcript);
+    };
+
+    recognition.onend = () => {
+      console.log('Voice recognition ended.');
+    };
+
+
+
+const handlePlay = () => {
+  const synth = window.speechSynthesis;
+  console.log('clicked');
+
+  if (isPaused) {
+    synth.resume();
   }
-console.log(text);
+
+  synth.speak(utterance);
+
+  setIsPaused(false);
+};
+
+const handleListen = () => {
+  // const synth = window.speechSynthesis;
+  // const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  // const recognition = new SpeechRecognition();
+  // recognition.start();
+  console.log('clicked');
+  // if (isPaused) {
+  //   synth.resume();
+  // }
+
+  if (!recognition.running) {
+    recognition.start();
+    setText('Listening... Speak into the microphone.');
+  } else {
+    recognition.stop();
+    setText('Voice recognition stopped. Click on the Microphone logo to start again.');
+  }
+
+  setIsPaused(false);
+};
 
 
+console.log(text)
 
   return (
     <>
-    <Speech id="speech" text={text} click-listener cursor-listener speech-on-click />
-    
-      <Scene vr-mode-ui="enabled: true" >
+
+      <Scene>
         <a-assets>
           <img id="sky" src={sky}></img>  
           <a-asset-item id="mountain" src={mountain}></a-asset-item>
@@ -55,10 +112,11 @@ console.log(text);
           <a-asset-item id="chatGpt" src={chatGpt}></a-asset-item>
           <a-asset-item id="github" src={github}></a-asset-item>
           <a-asset-item id="rocket" src={rocket}></a-asset-item>
+          <a-asset-item id="voice" src={voice}> </a-asset-item>
           <video id="video" preload="auto" src={video}></video>
           <a-asset-item id="pillar" src={pillar}></a-asset-item>
           <a-asset-item id="stage" src={stage}></a-asset-item>
-          <Speech id="chatGpt" text="Hello World" click-listener cursor-listener />
+          {/* <Speech id="chatGpt" text="Hello World" click-listener cursor-listener /> */}
           <a-mixin id="boldFont1" animation="property: position; dur: 6000; easing: linear; loop: false; to: -7 2 -12"></a-mixin>
           <a-mixin id="boldFont2" animation__yoyo="property: position; dur: 6000; easing: linear; loop: false; to: -7 4 -12"></a-mixin>
 
@@ -176,19 +234,25 @@ console.log(text);
 
         <Entity
           id="chatGpt"
-          gltf-model="#chatGpt"
+          gltf-model={chatGpt}
           position="-45 1 -27"
           scale="1 1 1"
           rotation="0 0 0"
-          events={{ click: () => { handleClick()} }}
+          events={{ click: () => { handlePlay()} }}
           click-listener
-          cursor-listener
-          speech-on-click
-          data-text="Hello World"
-        > 
-        
-          
-        </Entity>
+          cursor-listener 
+        ></Entity>
+
+        <Entity
+          id="voice"
+          gltf-model={voice}
+          position="-47.5 1.2 -27"
+          scale=".5 .5 .5"
+          rotation="-90 0 0"
+          events={{ click: () => { handleListen()} }}
+          click-listener
+          cursor-listener 
+        ></Entity>
 
 
         <Entity 
@@ -209,14 +273,15 @@ console.log(text);
         ></Entity>
 
 
-        <Entity
+        {/* <Entity
           id="pillar"
           gltf-model="#pillar"
-          position="100 -1 0"
-          scale="4 4 4"
+          position="0 2 0"
+          scale="1 1 1 "
           rotation="0 0 0"
           static-body
-        ></Entity>         
+          animation-mixer="clip: Animation; loop: repeat; timeScale: 1"
+        ></Entity>          */}
 
         <Entity 
           id="stage" 

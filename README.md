@@ -32,4 +32,12 @@ https://c-frame.github.io/aframe-extras/examples/
 
 "Greek Pillar Circle" (https://skfb.ly/6SVWy) by deertears is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
+"Voice" (https://skfb.ly/6UV9A) by Tatiana_Lytvyn is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Chat icon 1 / Чат иконка 1" (https://skfb.ly/oEyUz) by marishka1611 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Mic" (https://skfb.ly/oGwYz) by dalgo11 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Particle Wave" (https://skfb.ly/otJ7Y) by Tycho Magnetic Anomaly is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
 material="color: #009EDB; opacity: 1; metalness: .8 " 
