@@ -7,27 +7,51 @@ import 'aframe-text-geometry-component';
 // import 'aframe-physics-system';
 // import 'aframe-environment-component';
 import sky from './stars.jpg';
-import mountain from './models/mountain.glb';
-import cube from './models/tesseract_cube.glb';
-import einstein from './models/einstein_salesforce_tower.glb';
-import cloud from './models/cloud_high_poly.glb';
+import mountain from './models/hall.glb';
+// import cube from './models/tesseract_cube.glb';
+// import einstein from './models/einstein_salesforce_tower.glb';
+// import cloud from './models/cloud_high_poly.glb';
 import cortana from './models/new_cortana_halo4_og.glb';
 import glow from './models/glow.glb';
 import chatGpt from "./models/chat_gpt_logo_metal_free_v.2.glb";
 import voice from './models/mic.glb';
-import github from './models/github_octocat.glb';
-import rocket from './models/rocket.glb';
-import pillar from './models/particle_wave.glb';
-import stage from './models/scene.glb';
-import video from './models/Drake.mp4';
+// import github from './models/github_octocat.glb';
+// import rocket from './models/rocket.glb';
+// import pillar from './models/particle_wave.glb';
+// import stage from './models/scene.glb';
+// import video from './models/Drake.mp4';
+import { chatgpt } from './api/chatGpt';
 
 
 
 function App() {
-  const [text, setText] = useState('Welcome to my ChatGpt Demo! Click on the Microphone logo to start a conversation.');
+  const [text, setText] = useState("I'm Cortana click on the ChatGpt logo to start a conversation.");
   const [isPaused, setIsPaused] = useState(false);
   const [utterance, setUtterance] = useState(null);
+  // const [question, setQuestion] = useState(null);
+  const [message, setMessage] = useState("Hover or click on Cortana");
 
+  const fetchChatGpt = async (question) => {
+    const synth = window.speechSynthesis;
+    console.log("Question", question)
+    const {error, reply } = await chatgpt(question)
+    
+    if (error) {
+      console.log(error)
+      setMessage(error)
+    }
+    setMessage(reply)
+    const u = new SpeechSynthesisUtterance(reply);
+    
+    synth.speak(u);
+  
+  }
+ 
+
+
+
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
 
 useEffect(() => {
   const synth = window.speechSynthesis;
@@ -40,93 +64,106 @@ useEffect(() => {
   };
 }, [text]);
 
+// useEffect(() => {
+    
 
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
+//     recognition.onstart = () => {
+//       console.log('Voice recognition started. Speak into the microphone.');
+//     };
 
-    recognition.onstart = () => {
-      console.log('Voice recognition started. Speak into the microphone.');
-    };
+//     recognition.onresult = (event) => {
+//       const transcript = event.results[0][0].transcript;
+//       console.log('Voice recognition result:', transcript);
+//       setText(transcript);
+//     };
 
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      console.log('Voice recognition result:', transcript);
-      setText(transcript);
-    };
-
-    recognition.onend = () => {
-      console.log('Voice recognition ended.');
-    };
-
+//     recognition.onend = () => {
+//       console.log('Voice recognition ended.');
+//     };
+//     console.log(text)
+//   }, []);
 
 
-const handlePlay = () => {
+const handlePlay =  () => {
   const synth = window.speechSynthesis;
-  console.log('clicked');
+  setMessage('Clicked Cortana');
 
   if (isPaused) {
+    
     synth.resume();
   }
 
+  
   synth.speak(utterance);
+ 
 
-  setIsPaused(false);
+  setIsPaused(false);  
+
 };
 
-const handleListen = () => {
-  // const synth = window.speechSynthesis;
-  // const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  // const recognition = new SpeechRecognition();
-  // recognition.start();
-  console.log('clicked');
-  // if (isPaused) {
-  //   synth.resume();
-  // }
+
+const handleListen = async () => {
+  setMessage('Listening...');
+
+  var quest = null
 
   if (!recognition.running) {
     recognition.start();
-    setText('Listening... Speak into the microphone.');
-  } else {
-    recognition.stop();
-    setText('Voice recognition stopped. Click on the Microphone logo to start again.');
+    recognition.onstart = () => {
+      setMessage('Voice recognition started. Speak into the microphone.');
+    };
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setMessage('Voice recognition result:', transcript);
+      quest = transcript;
+    };
+    recognition.onend =  () => {
+      setMessage('Voice recognition ended.');
+      console.log(quest)
+      //  setQuestion(quest)
+      
+      fetchChatGpt(quest)
+
+    };
+    
+    } else {
+      recognition.stop();
+      setMessage('Voice recognition stopped. Click on the Microphone logo to start again.');
   }
+  
 
-  setIsPaused(false);
+  
 };
-
-
-console.log(text)
 
   return (
     <>
 
-      <Scene>
+      <Scene  crossorigin="anonymous" >
         <a-assets>
           <img id="sky" src={sky}></img>  
           <a-asset-item id="mountain" src={mountain}></a-asset-item>
-          <a-asset-item id="cube" src={cube}></a-asset-item>
+          {/* <a-asset-item id="cube" src={cube}></a-asset-item>
           <a-asset-item id="einstein" src={einstein}></a-asset-item>
-          <a-asset-item id="cloud" src={cloud}></a-asset-item>
+          <a-asset-item id="cloud" src={cloud}></a-asset-item> */}
           <a-asset-item id="cortana" src={cortana}></a-asset-item>
           <a-asset-item id="glow" src={glow}></a-asset-item>
           <a-asset-item id="chatGpt" src={chatGpt}></a-asset-item>
-          <a-asset-item id="github" src={github}></a-asset-item>
+          {/* <a-asset-item id="github" src={github}></a-asset-item>
           <a-asset-item id="rocket" src={rocket}></a-asset-item>
           <a-asset-item id="voice" src={voice}> </a-asset-item>
           <video id="video" preload="auto" src={video}></video>
           <a-asset-item id="pillar" src={pillar}></a-asset-item>
-          <a-asset-item id="stage" src={stage}></a-asset-item>
-          {/* <Speech id="chatGpt" text="Hello World" click-listener cursor-listener /> */}
-          <a-mixin id="boldFont1" animation="property: position; dur: 6000; easing: linear; loop: false; to: -7 2 -12"></a-mixin>
-          <a-mixin id="boldFont2" animation__yoyo="property: position; dur: 6000; easing: linear; loop: false; to: -7 4 -12"></a-mixin>
+          <a-asset-item id="stage" src={stage}></a-asset-item> */}
+          {/* <a-mixin id="boldFont1" animation="property: position; dur: 6000; easing: linear; loop: false; to: -7 2 -12"></a-mixin>
+          <a-mixin id="boldFont2" animation__yoyo="property: position; dur: 6000; easing: linear; loop: false; to: -7 4 -12"></a-mixin> */}
 
         </a-assets>
 
         <Entity
           primitive="a-camera"
-          position="0 1.5 0"
-          look-controls="reverseMouseDrag: true"
-          wasd-controls="acceleration: 100; fly: true"
+          // position="0 1.5 0"
+          look-controls="reverseMouseDrag: false"
+          wasd-controls="acceleration: 100; "
           cursor="rayOrigin: mouse"
           raycaster="objects: .clickable"
         >
@@ -139,17 +176,36 @@ console.log(text)
           ></Entity>
         </Entity>
 
-       
 
         <Entity 
           primitive="a-sky" 
           color="#FFFFFF" 
           material="src: #sky" 
           rotation="0 0 0" 
+          scale=".06 .06 .06"
         ></Entity>
 
+        {/* <Entity
+          primitive="a-light"
+          id="dirlight" 
+          intensity="1" 
+          light="castShadow:true;type:directional" 
+          position="1 1 1"
+          color="#c8b8db"
+         
+        ></Entity> */}
+
+        <Entity
+          primitive="a-light"
+          type="point"
+          color="#c8b8db"
+          position="0 85 0"
+          intensity=".7"
+        ></Entity>
+   
+
       
-        <Entity 
+        {/* <Entity 
           id="name"
           mixin="boldFont2" 
           text-geometry="value: Dennis Hickox; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 10; size: 1.5; height: 0.5; weight: bold; style: normal;" 
@@ -170,19 +226,19 @@ console.log(text)
           // animation="property: components.material.material.color; type: color; dir: alternate; dur: 1000; easing: easeInSine; loop: true; to: #5F5"
           // animation__opacity="property: components.material.material.opacity; dur: 3000; easing: linear; from: 0; to: 1; loop: false"
           // animation="property: position; dur: 6000; easing: linear; loop: false; to: -7 2 -12"
-        ></Entity>
+        ></Entity> */}
 
         <Entity 
           id="mountain"  
-          gltf-model="#mountain" 
-          position="0 0 0" 
-          scale="15 15 15" 
-          rotation="0 0 0"
+          gltf-model={mountain}
+          position="-1 0 0" 
+          scale="1 1 1 " 
+          rotation="0 176 0"
           static-body
         ></Entity>
         
-        <Entity
-          gltf-model="#cube"
+        {/* <Entity
+          gltf-model={cube}
           position="-13 4 -14"
           rotation="0 0 0"
           scale="0.02 0.02 0.02"
@@ -213,20 +269,21 @@ console.log(text)
           position="40 3 -32.8" 
           scale="1 1 1" 
           rotation="0 0 0"
-        ></Entity>
+        ></Entity> */}
         
         <Entity
           id="cortana"
-          gltf-model="#cortana"
-          position="-45 1 -32"
+          gltf-model={cortana}
+          position="0 1 -9"
           scale="2 2 2 "
           rotation="0 0 0"
+          events={{ click: () => { handlePlay()} }}
         ></Entity>
 
         <Entity
           id="glow"
-          gltf-model="#glow"
-          position="-45 4 -30"
+          gltf-model={glow}
+          position="0 4 -7"
           scale="6 6 6"
           rotation="-90 0 0"
           animation-mixer="clip: Take 001; loop: repeat; timeScale: 1"
@@ -235,33 +292,53 @@ console.log(text)
         <Entity
           id="chatGpt"
           gltf-model={chatGpt}
-          position="-45 1 -27"
+          position="0 1 -5"
           scale="1 1 1"
           rotation="0 0 0"
-          events={{ click: () => { handlePlay()} }}
-          click-listener
-          cursor-listener 
-        ></Entity>
-
-        <Entity
-          id="voice"
-          gltf-model={voice}
-          position="-47.5 1.2 -27"
-          scale=".5 .5 .5"
-          rotation="-90 0 0"
           events={{ click: () => { handleListen()} }}
           click-listener
           cursor-listener 
         ></Entity>
 
+        <Entity
+          id='plain-text'
+          text={{ value: message, align: 'center', width: 3 }}
+          position="-4 2.5 -5"
+          rotation="0 0 0"
+          scale="1 1 1"
+          primitive="a-text"
+          visible="true"
+          material="color: #c8b8db; opacity: 1; metalness: .8"
+        ></Entity>
+        
+        <Entity
+          id="plain"
+          geometry="primitive: plane; width: 3; height: 1"
+          position="-4 2.5 -5"
+          rotation="0 0 0"
+          scale="1 1 1"
+          material="color: #FFFFFF; opacity: 0.5; metalness: .8"
+        ></Entity>
+{/* 
+        <Entity
+          id="voice"
+          gltf-model={voice}
+          position="-.5 1.2 -5"
+          scale=".5 .5 .5"
+          rotation="-90 0 0"
+          events={{ click: () => { handleListen()} }}
+          click-listener
+          cursor-listener 
+        ></Entity> */}
 
+{/* 
         <Entity 
           id="github" 
           gltf-model="#github" 
           position="-30 1 50" 
           scale="1 1 1" 
           rotation="0 0180 0"
-        ></Entity>
+        ></Entity> */}
 
         <Entity
           id="rocket"
@@ -276,12 +353,12 @@ console.log(text)
         {/* <Entity
           id="pillar"
           gltf-model="#pillar"
-          position="0 2 0"
+          position="-100 15 0"
           scale="1 1 1 "
-          rotation="0 0 0"
+          rotation="0 90 0"
           static-body
-          animation-mixer="clip: Animation; loop: repeat; timeScale: 1"
-        ></Entity>          */}
+          animation-mixer="clip: Animation; loop: repeat;"
+        ></Entity>         
 
         <Entity 
           id="stage" 
@@ -293,13 +370,14 @@ console.log(text)
         ></Entity>
 
 
-        {/* <Entity 
+        <Entity 
           primitive="a-video" 
           src="#video" 
           width="50" 
           height="25" 
           position="-102 18 0" 
           rotation="0 -90 0"
+          autoPlay="true"
         ></Entity> */}
 
 
@@ -309,3 +387,4 @@ console.log(text)
 }
 
 export default App;
+
