@@ -22,6 +22,8 @@ https://stemkoski.github.io/A-Frame-Examples/
 
 "new_cortana_halo4_og" (https://skfb.ly/ossET) by bingchillin is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
+"Spartan Armour MKV - Halo Reach" (https://skfb.ly/6QVvM) by McCarthy3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
 https://c-frame.github.io/aframe-extras/examples/
 
 "CHAT GPT LOGO METAL FREE V.2" (https://skfb.ly/oJP7y) by vmmaniac is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
@@ -40,4 +42,18 @@ https://c-frame.github.io/aframe-extras/examples/
 
 "Particle Wave" (https://skfb.ly/otJ7Y) by Tycho Magnetic Anomaly is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
-material="color: #009EDB; opacity: 1; metalness: .8 " 
+"Sacred Ring (Halo)" (https://skfb.ly/6CVxD) by Yanez Designs is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"CCS Class Battlecruiser" (https://skfb.ly/6AsMT) by Marr Velz is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+https://www.turbosquid.com/FullPreview/144874
+
+"Halo Energy Sword Design" (https://skfb.ly/6U76G) by Mougater is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"halo-armoured-grunt-Walk" (https://skfb.ly/or7PV) by bensimulator2 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Spartan Armour MKV - Halo Reach" (https://skfb.ly/6QVvM) by McCarthy3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Characters>Halo 4>Cortana" (https://skfb.ly/oNRWK) by jameslucino117 is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).
+
+"Sacred Ring (Halo)" (https://skfb.ly/6CVxD) by Yanez Designs is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
