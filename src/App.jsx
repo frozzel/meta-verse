@@ -1,4 +1,4 @@
-import './App.scss';
+// import './App.scss';
 import {useState, useEffect} from 'react';
 import {Entity, Scene} from 'aframe-react';
 import 'aframe';
@@ -102,6 +102,8 @@ const handleListen = async () => {
   
 };
 
+
+
 const credits = 'Special Thanks To: \n\n "CHAT GPT LOGO METAL FREE V.2" (https://skfb.ly/oJP7y) by vmmaniac \n \n"CCS Class Battlecruiser" \n(https://skfb.ly/6AsMT) by Marr Velz \n \n "halo-armoured-grunt-Walk" \n (https://skfb.ly/or7PV) by bensimulator2 \n\n "Spartan Armour MKV - Halo Reach" \n(https://skfb.ly/6QVvM) by McCarthy3D \n\n "Characters>Halo 4>Cortana" (https://skfb.ly/oNRWK) by jameslucino117 \n\n "Sacred Ring (Halo)" \n (https://skfb.ly/6CVxD) by Yanez Designs \n\n all licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).'
 
   return (
@@ -112,22 +114,24 @@ const credits = 'Special Thanks To: \n\n "CHAT GPT LOGO METAL FREE V.2" (https:/
           <img id="sky" src={sky}></img>  
         </a-assets>
 
-        <Entity
-          primitive="a-camera"
-          // position="0 1.5 0"
-          look-controls="reverseMouseDrag: false"
-          wasd-controls="acceleration: 100; "
-          cursor="rayOrigin: mouse"
-          raycaster="objects: .clickable"
-        >
-          <Entity
-          primitive="a-cursor"
-          cursor="fuse: true; fuseTimeout: 500"
-          position="0 0 -1"
-          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-          material="color: white; shader: flat"
-          ></Entity>
+
+        <Entity id="rig"
+                  movement-controls="controls: gamepad,keyboard,nipple,trackpad,touch"
+                  nipple-controls="mode: static">
+          <Entity primitive="a-camera"
+                    position="0 1.6 0"
+                    look-controls="pointerLockEnabled: false"
+                    cursor="rayOrigin: mouse"
+                    raycaster="objects: .clickable">
+            <Entity primitive="a-cursor"
+                    cursor="fuse: true; fuseTimeout: 500"
+                    position="0 0 -1"
+                    geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                    material="color: white; shader: flat">
+            </Entity>
+          </Entity>
         </Entity>
+        
 
 
         <Entity 
@@ -167,6 +171,7 @@ const credits = 'Special Thanks To: \n\n "CHAT GPT LOGO METAL FREE V.2" (https:/
           rotation="0 180 0"
           events={{ click: () => { handlePlay()} }}
           animation-mixer="clip: Twerking; loop: repeat; timeScale: 1"
+          raycaster-target="canGrab: true;"
         ></Entity>
 
         <Entity
@@ -187,6 +192,7 @@ const credits = 'Special Thanks To: \n\n "CHAT GPT LOGO METAL FREE V.2" (https:/
           events={{ click: () => { handleListen()} }}
           click-listener
           cursor-listener 
+          raycaster-target="canGrab: true;"
         ></Entity>
 
         <Entity
@@ -288,8 +294,7 @@ const credits = 'Special Thanks To: \n\n "CHAT GPT LOGO METAL FREE V.2" (https:/
           material="color: #FFFFFF; opacity: 0.5;"
           
         ></Entity>
-
-
+ 
 
       </Scene>
     </>
