@@ -22,9 +22,9 @@ Immerse yourself in the future of web development, where A-Frame.io, ChatGPT, an
 
   ## Screen Shots
 
-![Screen Shots](https://github.com/frozzel/narcissistSocial/blob/e41148c2c4c9fbcc1d6b2092de4090e214b870ca/s1.png)
-![Screen Shots2](https://github.com/frozzel/narcissistSocial/blob/007c7688e0d778a3d49000ac61efbdb9b7141811/s2.png)
-![Screen Shots3](https://github.com/frozzel/narcissistSocial/blob/007c7688e0d778a3d49000ac61efbdb9b7141811/s3.png)
+![Screen Shots](https://github.com/frozzel/meta-verse/blob/7967a53566d4110dbe22bd0c91a825b164a42f31/src/assets/images/Screenshot%20Meta-1.png)
+![Screen Shots2](https://github.com/frozzel/meta-verse/blob/7967a53566d4110dbe22bd0c91a825b164a42f31/src/assets/images/Screenshot%20Meta-2.png)
+![Screen Shots3](https://github.com/frozzel/meta-verse/blob/7967a53566d4110dbe22bd0c91a825b164a42f31/src/assets/images/Screenshot%20Meta-3.png)
 
   
   ## Resources
