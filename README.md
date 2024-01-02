@@ -1,15 +1,43 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   # Meta-Verse ChatGpt Integration   
+   [![Github](https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/frozzel/meta-verse)[![DIGITALOCEAN](https://img.shields.io/badge/DigitalOcean-0080FF.svg?style=for-the-badge&logo=DigitalOcean&logoColor=white)](https://sea-turtle-app-z2bd9.ondigitalocean.app/)
+ 
+ ---
 
 
-https://stackoverflow.com/questions/74405828/cant-seem-to-import-glb-gltf-in-svelte-with-vite
-https://stemkoski.github.io/A-Frame-Examples/
+
+  ## Description
+Introducing our cutting-edge web development project that seamlessly integrates A-Frame.io, a powerful framework for building immersive virtual reality experiences, with the advanced capabilities of ChatGPT and the Web Speech API. 
+
+Immerse yourself in a world where virtual reality meets artificial intelligence, as we bring together A-Frame's versatility with the ability to interact and communicate using natural language processing. Navigate through captivating VR environments and engage in dynamic conversations with our integrated ChatGPT. 
+
+The A-Frame.io framework forms the backbone of our immersive experience, allowing for the creation of stunning 3D virtual worlds accessible through web browsers. From interactive scenes to captivating landscapes, our development team leverages A-Frame's capabilities to deliver a seamless and visually stunning VR experience.
+
+But the innovation doesn't stop there. With ChatGPT integration, users can engage in natural and intelligent conversations within the virtual environment. Whether you're exploring a virtual museum, educational space, or collaborative workspace, ChatGPT enhances user interaction by responding dynamically to your inquiries and providing a personalized experience.
+
+To take communication to the next level, our project incorporates the Web Speech API, enabling text-to-speech and voice-to-text functionalities. Simply speak to interact with the virtual environment, and listen as it responds with the power of Web Speech API's realistic text-to-speech synthesis. Likewise, your spoken words can seamlessly convert to text, enhancing communication within the VR space.
+
+Immerse yourself in the future of web development, where A-Frame.io, ChatGPT, and the Web Speech API converge to create a truly interactive and immersive virtual reality experience. Explore, communicate, and interact like never before in the dynamic world we've crafted at the intersection of VR and AI.
+ 
+
+
+  ## Screen Shots
+
+![Screen Shots](https://github.com/frozzel/narcissistSocial/blob/e41148c2c4c9fbcc1d6b2092de4090e214b870ca/s1.png)
+![Screen Shots2](https://github.com/frozzel/narcissistSocial/blob/007c7688e0d778a3d49000ac61efbdb9b7141811/s2.png)
+![Screen Shots3](https://github.com/frozzel/narcissistSocial/blob/007c7688e0d778a3d49000ac61efbdb9b7141811/s3.png)
+
+  
+  ## Resources
+
+[A-Frame](https://aframe.io/)
+
+[A-Frame Docs](https://aframe.io/docs/1.5.0/introduction/)
+
+[A-Frame Examples](https://stemkoski.github.io/A-Frame-Examples/)
+
+[ChatGpt Api](https://platform.openai.com/docs/api-reference/introduction)
+
+## 3D Models
 
 "Kevin The Cube" (https://skfb.ly/o6Ypo) by lildrstrange11 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
@@ -57,3 +85,16 @@ https://www.turbosquid.com/FullPreview/144874
 "Characters>Halo 4>Cortana" (https://skfb.ly/oNRWK) by jameslucino117 is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).
 
 "Sacred Ring (Halo)" (https://skfb.ly/6CVxD) by Yanez Designs is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+
+---
+
+  ## Contributors 
+
+  Created by: [@frozzel](https://github.com/frozzel/meta-verse)
+  
+  Please contact me with questions at: frozzel@me.com
+  
+  [![Github license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  
+
