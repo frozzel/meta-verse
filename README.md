@@ -1,5 +1,5 @@
   <div>
-  <a href="https://sea-turtle-app-z2bd9.ondigitalocean.app/"><img src="https://github.com/frozzel/frozzel/blob/f9910f8d8cfe0a6c2a17d4e502d749182d77696b/Meta-Verse.gif" align="center" height="" width="100%" ></a></div>
+  <a href="https://sea-turtle-app-z2bd9.ondigitalocean.app/"><img src="https://github.com/frozzel/meta-verse/blob/0a16c33bd2490f004673c2da8a6aa4db97c5e864/src/assets/images/Meta-Verse.gif" align="center" height="" width="100%" ></a></div>
 
   ---   
    
